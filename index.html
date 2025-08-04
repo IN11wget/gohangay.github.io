@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Pergunta do dia</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(
+        to bottom,
+        #FF0000 0%,
+        #FF7F00 16.66%,
+        #FFFF00 33.33%,
+        #00FF00 50%,
+        #0000FF 66.66%,
+        #8B00FF 83.33%,
+        #E60073 100%
+      );
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 1px 1px 2px black;
+    }
+    button {
+      font-size: 1.2rem;
+      margin: 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    #resposta {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Gohan é gay?</h1>
+  <button id="sim">Sim</button>
+  <button id="nao">Não</button>
+  <p id="resposta"></p>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const botaoSim = document.getElementById("sim");
+    const botaoNao = document.getElementById("nao");
+    const resposta = document.getElementById("resposta");
+
+    botaoSim.onclick = function () {
+      resposta.textContent = "✔️ Resposta correta!";
+      resposta.style.color = "lightgreen";
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    };
+
+    botaoNao.onclick = function () {
+      resposta.textContent = "❌ Resposta errada!";
+      resposta.style.color = "red";
+    };
+  </script>
+</body>
+</html>
